@@ -1,0 +1,44 @@
+<h2>advantages</h2>
+<ul>
+  <li>not on fly </li>
+  <li>config file for upleader is separete in app/upleader/</li>
+  <li>rack based = quick (using rmagict )</li>
+  <li>realy like the philosophy how it handles image processing lib. (for. e. paperclip) </li>
+  <li>easy to configure</li>
+  <li>use s3 and other storages (easy to swich)</li>
+  <li>suports several data storage</li>
+</ul>
+
+<h2>disadv.</h2>
+
+<ul>
+  <li>not on fly</li>
+  <li>don't have any exp with it </li>
+</ul>
+
+<p>don't need heavy RMagick, can use MinyMagick => smaller replacement of Rmagic</p>
+
+
+<h1>Listing carrier_albums</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @carrier_albums.each do |carrier_album| %>
+  <tr>
+    <td><%= image_tag carrier_album.image_url(:thumb) if carrier_album.image? %></td>
+
+    <td><%= link_to 'Show', carrier_album %></td>
+    <td><%= link_to 'Edit', edit_carrier_album_path(carrier_album) %></td>
+    <td><%= link_to 'Destroy', carrier_album, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Carrier album', new_carrier_album_path %>

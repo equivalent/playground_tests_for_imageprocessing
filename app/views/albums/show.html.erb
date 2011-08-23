@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @album.title %>
+
+  <h1>basic image</h1>
+  <%= image_tag @album.cover_image.url %>
+  
+  <h1>image with specify size</h1>
+  <%= image_tag @album.cover_image.thumb('400x200#').url %>
+
+  <h1>jpg</h1>
+  <%= image_tag @album.cover_image.jpg.url %>
+
+  <h1>tiff </h1>
+  <%= image_tag @album.cover_image.process(:greyscale).encode(:tiff).url %>
+</p>
+
+
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Back', albums_path %>

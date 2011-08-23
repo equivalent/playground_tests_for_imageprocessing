@@ -1,0 +1,59 @@
+<h2>reasons why to use dragonfly  </h2>
+<ol>
+  <li>on fly image procesing </li>
+  <ul>
+    <li>It's realy fast, based on separet Rack application from Rails</li>
+    <li>it's rendering when browser calls url of the image (not while procesing the Rails app ) that is plus</li>
+  </ul>
+  <li></li>
+  <li>less pain deciding what size we use now and for ever</li>
+</ol>
+
+<h2>reasons why to use dragonfly  </h2>
+<ol>
+  <li>on fly image procesing (on other hand it feels odd to use application to render something that can be rendered once (f.e. wit Paperclip) even if it't cached</li>
+  <li>taking extra cpu </li>
+  <li>need cache-front wich isn't that big deal, but +1 thing to worrie about</li>
+
+</ol>
+
+
+dont use Rmagick based image porcessing
+
+<h1>Listing albums</h1>
+
+
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @start_time=Time.now %>
+<% @albums.each do |album| %>
+  <tr>
+    <td><%= album.title %></td>
+    <td><%= image_tag album.cover_image.thumb('100x100#').url %></td>
+    <td><%= image_tag album.cover_image.thumb('100x200#').url %></td>
+    <td><%= image_tag album.cover_image.thumb('100x200>').url %></td>
+    <td><%= image_tag album.cover_image.thumb('400x200#').url %></td>
+    <td><%= image_tag album.cover_image.thumb('400x200#').url %></td>
+    <td><%= link_to 'Show', album %></td>
+    <td><%= link_to 'Edit', edit_album_path(album) %></td>
+    <td><%= link_to 'Destroy', album, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<%= link_to 'New Album', new_album_path %>
+
+<h1> lead time : 
+<%= p "#{Time.now-@start_time} seconds"
+ %>
+</h1> 

@@ -1,0 +1,21 @@
+<%= form_for(@carrier_album, :html=>{:multipart => true} ) do |f| %>
+  <% if @carrier_album.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@carrier_album.errors.count, "error") %> prohibited this carrier_album from being saved:</h2>
+
+      <ul>
+      <% @carrier_album.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
